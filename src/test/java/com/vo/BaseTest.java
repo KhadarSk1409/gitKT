@@ -29,6 +29,7 @@ import java.time.Duration;
 import java.util.*;
 import java.util.logging.Level;
 
+import static com.codeborne.selenide.ClickOptions.usingDefaultMethod;
 import static com.codeborne.selenide.CollectionCondition.itemWithText;
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.byText;
@@ -357,8 +358,7 @@ public abstract class BaseTest {
         open("/library/forms");
         $(elementLocators("CreateNewFormButton")).should(appear); //ensure library is loaded and create new form button is visible
         executeJavaScript("document.querySelector('#btnCleanupTestForms').style.visibility = 'inherit'"); //make hidden cleanup button visible for the test user
-        $(elementLocators("CleanUpButton")).should(appear).click();
-        $(elementLocators("CleanUpButton")).should(disappear, Duration.of(10, MINUTES));
+        $(elementLocators("CleanUpButton")).should(appear).click(usingDefaultMethod()).should(disappear, Duration.of(10, MINUTES));
     }
 
     protected static SelenideElement selectAndClear(String cssSelector) {

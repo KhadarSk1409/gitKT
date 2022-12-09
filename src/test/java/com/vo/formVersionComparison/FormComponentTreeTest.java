@@ -46,7 +46,7 @@ public class FormComponentTreeTest extends BaseTest{
         //Verify version 1.0 with version 9.0
         $(elementLocators("SourceFormPopupOpener")).should(exist).click();
         $(elementLocators("Popover")).should(appear);
-        $$(elementLocators("ListOfOptions")).shouldHave(itemWithText("Compare Test Forms 1.0"), Duration.ofSeconds(15));
+        $$(elementLocators("ListOfOptions")).shouldHave(itemWithText("Compare Test Forms 1.0"));
         $$(elementLocators("ListOfOptions")).findBy(text("Compare Test Forms 1.0")).click();
         $(elementLocators("CompareButton")).should(exist).click();
         $(sourceFirstBlock).should(exist).$(byAttribute("aria-label", "Edited")).should(appear);

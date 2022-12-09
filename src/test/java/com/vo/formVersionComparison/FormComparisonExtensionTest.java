@@ -45,7 +45,7 @@ public class FormComparisonExtensionTest extends BaseTest {
         //Verifying version 5.0
         $(elementLocators("SourceFormPopupOpener")).should(exist).click();
         $(elementLocators("Popover")).should(appear);
-        $$(elementLocators("ListOfOptions")).shouldHave(itemWithText("Compare Test Forms 5.0"), Duration.ofSeconds(10));
+        $$(elementLocators("ListOfOptions")).shouldHave(itemWithText("Compare Test Forms 5.0"));
         $$(elementLocators("ListOfOptions")).findBy(text("Compare Test Forms 5.0")).click();
         $(elementLocators("CompareButton")).should(exist).click();
         $(elementLocators("SourceBlockR1C1")).should(exist).shouldHave(Condition.text("First Text Field")).should(exist);

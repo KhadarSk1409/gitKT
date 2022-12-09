@@ -31,14 +31,15 @@ public class MenuActionsTest extends BaseTest {
     public void verifyClickPDFOpensTabWithJspdfBtn() {
         $(elementLocators("SubMenu")).should(exist).click(); //SubMenu button on Form Dashboard
         $(elementLocators("PdfInSubMenu")).should(exist).shouldHave(Condition.text("PDF")).click();
-        new WebDriverWait(getWebDriver(), Duration.ofSeconds(20)).until(v -> {
-            Set<String> handles = getWebDriver().getWindowHandles();
-            return handles.size() > 1;
-        });
+
+        //Handling multiple windows using Selenide
+        Set<String> windowHandles = getWebDriver().getWindowHandles();
+        System.out.println("Available windows are " + windowHandles);
         switchTo().window(1);
         $("#btnJsPdf").should(appear);
         switchTo().window(0);
-    }
+
+}
 
     @Test
     @DisplayName("Verify Click on Edit Form Permission opens dialog Form Authorization")

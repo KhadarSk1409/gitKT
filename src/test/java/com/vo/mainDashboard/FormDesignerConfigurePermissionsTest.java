@@ -26,7 +26,7 @@ public class FormDesignerConfigurePermissionsTest extends BaseTest {
     @Order(2)
     public void configureFormPermissions() {
         $(elementLocators("LeftFormDashboardHeader")).should(appear);
-        $(elementLocators("SubMenu")).should(appear, Duration.ofSeconds(30)).click();
+        $(elementLocators("SubMenu")).should(appear).click();
         $(elementLocators("EditFormDesignInSubMenu")).should(exist).click(); //Click on Edit Form Design
         $(elementLocators("FormStructure")).should(exist);
         $(elementLocators("DesignerMenuContainer")).should(exist).click();

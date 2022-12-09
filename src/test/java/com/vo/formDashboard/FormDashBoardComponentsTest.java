@@ -3,15 +3,13 @@ package com.vo.formDashboard;
 import com.vo.BaseTest;
 import org.junit.jupiter.api.*;
 
-import java.io.IOException;
 import java.time.Duration;
 
-import static com.codeborne.selenide.CollectionCondition.texts;
+import static com.codeborne.selenide.ClickOptions.usingDefaultMethod;
 import static com.codeborne.selenide.Condition.*;
-import static com.codeborne.selenide.Selectors.byAttribute;
-import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.open;
 import static reusables.ReuseActions.elementLocators;
-import static reusables.ReuseActions.navigateToFormDashBoardFromFavoriteForms;
 
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 @DisplayName("Form Dashboard components validations")
@@ -57,16 +55,13 @@ public class FormDashBoardComponentsTest extends BaseTest {
     public void verifySwitchingOnUserDataListTabs() {
         $(elementLocators("Body")).click();
         $(elementLocators("UserDataList")).should(exist);   //User Data Lists should be available
-        $(elementLocators("MySubmissions")).click();
-        $(elementLocators("MySubmissions")).shouldHave(cssClass("Mui-selected"));
+        $(elementLocators("MySubmissions")).click(usingDefaultMethod()).shouldHave(cssClass("Mui-selected"));
         $(elementLocators("GridContainer")).shouldBe(visible); //Grid for My Submissions
 
-        $(elementLocators("AllSubmissions")).click();
-        $(elementLocators("AllSubmissions")).shouldHave(cssClass("Mui-selected"));
+        $(elementLocators("AllSubmissions")).click(usingDefaultMethod()).shouldHave(cssClass("Mui-selected"));
         $(elementLocators("GridContainer")).should(appear, Duration.ofSeconds(10)); //Grid for My Submissions
 
-        $(elementLocators("DataCapture")).click();
-        $(elementLocators("DataCapture")).shouldHave(cssClass("Mui-selected"));
+        $(elementLocators("DataCapture")).click(usingDefaultMethod()).shouldHave(cssClass("Mui-selected"));
         $(elementLocators("GridContainer")).should(appear); //Grid for Data Capture
     }
 

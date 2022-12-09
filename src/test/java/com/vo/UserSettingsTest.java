@@ -21,7 +21,7 @@ public class UserSettingsTest extends BaseTest {
     @Test
     @Order(1)
     @DisplayName("Appearance should change to Dark Theme")
-    public void appearanceShouldChangeToDarkTheme() throws IOException {
+    public void appearanceShouldChangeToDarkTheme() {
         $(elementLocators("UserSettingsPopover")).click(); //Click on User Settings Popover$("#myPreferences").should(appear).click(); //Click on preferences
         $(elementLocators("MyPreferences")).should(exist).click(); //Click on My Preferences
         $(elementLocators("Appearance")).should(exist).click(); //Click on Appearance
@@ -79,7 +79,7 @@ public class UserSettingsTest extends BaseTest {
     @Test
     @Order(2)
     @DisplayName("Should change users default language")
-    public void shouldChangeUsersDefaultLanguage() throws IOException {
+    public void shouldChangeUsersDefaultLanguage() {
 
         $(elementLocators("AccountSettings")).shouldBe(visible).click(); //Account Settings
 
@@ -109,7 +109,7 @@ public class UserSettingsTest extends BaseTest {
     @Test
     @Order(3)
     @DisplayName("As a User, I should be able to switch my Date & Time Format")
-    public void verifySwitchDateTimeFormat() throws IOException {
+    public void verifySwitchDateTimeFormat() {
         $(elementLocators("Appearance")).should(exist).click(); //Click on Appearance
         $(elementLocators("DateTimeFormat")).should(exist).click(); //Click on Date & Time format
 

@@ -1,11 +1,14 @@
 package com.vo.createformdialog;
 
+import com.codeborne.selenide.ClickOptions;
 import com.codeborne.selenide.SelenideElement;
 import com.vo.BaseTest;
 import org.apache.commons.lang3.tuple.Pair;
 import org.junit.jupiter.api.*;
 
 import java.util.List;
+
+import static com.codeborne.selenide.ClickOptions.usingDefaultMethod;
 import static com.codeborne.selenide.CollectionCondition.size;
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.byAttribute;
@@ -90,8 +93,7 @@ public class LanguagePropertiesTest extends BaseTest {
         secondRow.$(elementLocators("EditButton")).should(exist).click();
         secondRow.$(elementLocators("SaveIcon")).should(appear);
         secondRow.$(elementLocators("EmptyCheckBox")).click(); //checkbox should be checked to set German - Germany as Default
-        secondRow.$(elementLocators("SaveIcon")).should(exist).click();
-        secondRow.$(elementLocators("SaveIcon")).should(disappear);
+        secondRow.$(elementLocators("SaveIcon")).should(exist).click(usingDefaultMethod()).should(disappear);
         secondRow.$(elementLocators("DefaultField"))
                 .shouldHave(attribute("data-testid","CheckIcon")); //Now German language in second row should be marked as default
         firstRow.$(elementLocators("DefaultField"))

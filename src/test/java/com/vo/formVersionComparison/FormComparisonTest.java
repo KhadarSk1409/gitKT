@@ -36,7 +36,7 @@ public class FormComparisonTest extends BaseTest {
         $(elementLocators("SourceFormInputField")).shouldHave(value("Compare Test Forms 9.0"));
         $(elementLocators("SourceFormPopupOpener")).should(exist).click();
         $(elementLocators("Popover")).should(appear);
-        $$(elementLocators("ListOfOptions")).shouldHave(itemWithText("Compare Test Forms 1.0"), Duration.ofSeconds(10));
+        $$(elementLocators("ListOfOptions")).shouldHave(itemWithText("Compare Test Forms 1.0"));
         $$(elementLocators("ListOfOptions")).findBy(text("Compare Test Forms 1.0")).click();
         $(elementLocators("CompareButton")).should(exist).click();
         $(elementLocators("TargetBlockR1C1")).should(exist)
