@@ -17,7 +17,7 @@ public class VerifyEventTriggerFunctionalityTest extends BaseTest {
     @Test
     @DisplayName("Verify Drag and Drop Event Trigger and selected Integrations are appearing or not ")
     @Order(1)
-    public void verfiyEventTriggerAndIntegrationSelection(){
+    public void verifyEventTriggerAndIntegrationSelection(){
         createNewChecklist(); //Creates new checklist and Checklist designer will open
         $(elementLocators("PreviewChecklistButton")).should(appear);
         $(elementLocators("PublishChecklistTemplateButton")).should(exist);

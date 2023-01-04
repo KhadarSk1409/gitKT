@@ -49,10 +49,8 @@ public class VerifyFormEditActionsInChecklistCreationTest extends BaseTest {
         //Verify newly created form is available in checklist flow or not
         $(elementLocators("TargetListInChecklistFlow")).shouldHave(text("DemoForm")).$(elementLocators("EditFormButton")).click();
 
-        new WebDriverWait(getWebDriver(), Duration.ofSeconds(20)).until(v -> {
-            Set<String> handles = getWebDriver().getWindowHandles();
-            return handles.size() > 1;
-        });
+        Set<String> handles = getWebDriver().getWindowHandles();
+        System.out.println("No of windows in active are " + handles.size());
 
         //Switch to form designer window and do necessary actions
         switchTo().window(1);
@@ -109,11 +107,11 @@ public class VerifyFormEditActionsInChecklistCreationTest extends BaseTest {
         $(elementLocators("FormsAvailableInTable")).should(exist).getSize();
         String selectedForm2 = $(elementLocators("SecondFormNameInTheTable")).getText();
         System.out.println(selectedForm2);
-        String form2DataID =  $(elementLocators("SecondFormAvailableInTable")).should(exist).getAttribute("data-id");
+        String form2DataID = $(elementLocators("SecondFormAvailableInTable")).should(exist).getAttribute("data-id");
         $(elementLocators("SecondFormAvailableInTable")).click(); //Select the Second form available in the list
         $(elementLocators("TargetListInChecklistFlow")).shouldHave(text(selectedForm2)); //Verify whether the selected form is available in the Checklist flow or not
         assert form2DataID != null;
-        SelenideElement form2 = $(elementLocators("TargetListInChecklistFlow")).find(byAttribute("id",form2DataID)).should(exist);
+        SelenideElement form2 = $(elementLocators("TargetListInChecklistFlow")).find(byAttribute("id", form2DataID)).should(exist);
 
         $(form2).$(elementLocators("EditFormButton")).click();
 
